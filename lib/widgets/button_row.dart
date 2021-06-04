@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ButtonRow extends StatelessWidget {
-  const ButtonRow({
-    Key key,
-  }) : super(key: key);
+  const ButtonRow({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +44,4 @@ class ButtonRow extends StatelessWidget {
       ],
     );
   }
-
-  void _launchURL(String url) async =>
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 }
