@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_web/utils/util.dart';
+import 'package:portfolio_web/util/util.dart';
 import 'package:portfolio_web/widgets/body.dart';
 import 'package:portfolio_web/widgets/button_row.dart';
 import 'package:portfolio_web/widgets/contact_button.dart';
 
 class Portfolio extends StatelessWidget {
+  const Portfolio({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         title: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 9.0, bottom: 9),
-              child: CircleAvatar(
-                radius: 25,
-                backgroundColor: Colors.white,
-                foregroundImage: NetworkImage(
-                    'https://pbs.twimg.com/profile_images/888969496475598852/xi_Vvl_w_400x400.jpg'),
-              ),
+            CircleAvatar(
+              radius: 25,
+              backgroundColor: Colors.white,
+              foregroundImage: NetworkImage(
+                  'https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Kurt&hairColor=Black&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light'),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Paulo',
+                'CoderP',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
                     fontStyle: FontStyle.italic),
@@ -38,26 +37,26 @@ class Portfolio extends StatelessWidget {
         actions: [
           ContactButton(
             buttonText: 'Contact me',
-            icon: Icon(
-              Icons.send_sharp,
-            ),
+            icon: Icon(Icons.send_sharp),
             onPressed: () {
               launchMailto();
             },
           )
         ],
       ),
-      body: Stack(
-        children: [
-          Body(),
-          Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(48.0),
-                child: SizedBox(height: 59, child: ButtonRow()),
-              )),
-        ],
-      ),
+      body: Stack(children: [
+        Body(),
+        Align(
+          alignment: Alignment.bottomLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(48),
+            child: SizedBox(
+              height: 59,
+              child: ButtonRow(),
+            ),
+          ),
+        )
+      ]),
     );
   }
 }
